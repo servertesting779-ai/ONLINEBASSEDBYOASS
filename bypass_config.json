@@ -1,0 +1,581 @@
+{
+  "enabled": true,
+  "version": "3.0",
+  "author": "Lester",
+  "last_updated": "2026-04-14",
+  "description": "Complete Anti-Cheat Bypass Configuration - All Patches, Hooks & Libraries",
+  
+  "libraries": [
+    {
+      "name": "libUE4.so",
+      "load": true,
+      "action": "load",
+      "priority": 1,
+      "description": "Main game library - UE4 Engine"
+    },
+    {
+      "name": "libanogs.so",
+      "load": true,
+      "action": "load",
+      "priority": 2,
+      "description": "Anti-Cheat library - Blocks detection"
+    },
+    {
+      "name": "libTBlueData.so",
+      "load": true,
+      "action": "load",
+      "priority": 3,
+      "description": "Telemetry library - Blocks data sending"
+    },
+    {
+      "name": "libhdmpve.so",
+      "load": true,
+      "action": "load",
+      "priority": 4,
+      "description": "Anti-Cheat helper"
+    },
+    {
+      "name": "libanort.so",
+      "load": false,
+      "action": "skip",
+      "priority": 5,
+      "description": "Disabled in original bypass"
+    },
+    {
+      "name": "libCrashKit.so",
+      "load": false,
+      "action": "skip",
+      "priority": 6,
+      "description": "Disabled in original bypass"
+    },
+    {
+      "name": "libRoosterNN.so",
+      "load": false,
+      "action": "skip",
+      "priority": 7,
+      "description": "Disabled in original bypass"
+    }
+  ],
+  
+  "patches": [
+    {
+      "library": "libUE4.so",
+      "offset": "0x6152F70",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Termination Fixer 1 - MOV X0, #0; RET"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x5952F70",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Termination Fixer 2 - MOV X0, #0; RET"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x67866E4",
+      "bytes": "1F 20 03 D5",
+      "enabled": true,
+      "type": "direct",
+      "description": "NOP Patch - No Operation"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x5EB74BC",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Weapon Client Fix"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x139710",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "10 Minute Fix - RET"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x1ECD44",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Integrity Bypass 1"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x1ECD4C",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Integrity Bypass 2"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x213058",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Crash Fix 1"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x213360",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Crash Fix 2"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x21B030",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "10 Minute Fix 2"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x46EFC8",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Memory Tree Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x338678",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Integrity Check Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x223FE8",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Flag Delay"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x23607C",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Anti-Cheat Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x268174",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "3rd Party Ban Fix"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x2940D0",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Integrity Patch"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x2DF104",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Memory Check Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x330494",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Debugger Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x338680",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Integrity Fix"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x36A5B8",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Timing Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x371418",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Signature Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x37FD78",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Thread Detection Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x39F56C",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Hook Detection Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x3A564C",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Tracer Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x431800",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Stack Check Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4B03BC",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Anti-Debug Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4D8470",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Report System Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4DFBC0",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Ban System Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4DFE48",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Kick Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4E0018",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Suspicion Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x5026EC",
+      "bytes": "C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Final Check Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x505A44",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "Verification Bypass"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x50C1F8",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "SSL Pinning Bypass"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x2BFF7C",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "TBlue Flag Delay 1"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x2C08B0",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "TBlue Flag Delay 2"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x2BD51C",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "TBlue Report Bypass 1"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x2BBD90",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "TBlue Report Bypass 2"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x2B6B40",
+      "bytes": "00 00 80 D2 C0 03 5F D6",
+      "enabled": true,
+      "type": "direct",
+      "description": "TBlue Report Bypass 3"
+    }
+  ],
+  
+  "hooks": [
+    {
+      "library": "libanogs.so",
+      "offset": "0x46EFD0",
+      "hook_function": "hsub_46EFD0",
+      "original_function": "osub_46EFD0",
+      "enabled": true,
+      "type": "inline",
+      "description": "Memory Tree Hook - Blocks anti-cheat memory scanner"
+    },
+    {
+      "library": "libanogs.so",
+      "offset": "0x4D47D8",
+      "hook_function": "hsub_4D47D8",
+      "original_function": "osub_4D47D8",
+      "enabled": true,
+      "type": "inline",
+      "description": "Report System Hook - Blocks cheat reports to server"
+    },
+    {
+      "library": "libTBlueData.so",
+      "offset": "0x9AD94",
+      "hook_function": "hsub_9AD94",
+      "original_function": "osub_9AD94",
+      "enabled": true,
+      "type": "inline",
+      "description": "TBlue Flag Hook - Blocks telemetry flag sending"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x5A1F1DC",
+      "hook_function": "hsub_5A1F1DC",
+      "original_function": "osub_5A1F1DC",
+      "enabled": true,
+      "type": "inline",
+      "description": "Weapon Hook - Damage validation bypass"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6BDD344",
+      "hook_function": "hsub_6BDD344",
+      "original_function": "osub_6BDD344",
+      "enabled": true,
+      "type": "inline",
+      "description": "Global Flag Hook 1 - Sets global flag to 1"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6C4FD60",
+      "hook_function": "hsub_6C4FD60",
+      "original_function": "osub_6C4FD60",
+      "enabled": true,
+      "type": "inline",
+      "description": "Global Flag Hook 2 - Sets global flag to 1"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6BE6814",
+      "hook_function": "hsub_6BE6814",
+      "original_function": "osub_6BE6814",
+      "enabled": true,
+      "type": "inline",
+      "description": "Global Flag Hook 3 - Sets global flag to 1"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x59D86E8",
+      "hook_function": "hsub_59D86E8",
+      "original_function": "osub_59D86E8",
+      "enabled": true,
+      "type": "inline",
+      "description": "Event Hook - Blocks cheat-related events"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x68B30C0",
+      "hook_function": "hsub_68B30C0",
+      "original_function": "osub_68B30C0",
+      "enabled": true,
+      "type": "inline",
+      "description": "Integrity Check Hook - Bypasses integrity verification"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6785F48",
+      "hook_function": "hsub_6785F48",
+      "original_function": "osub_6785F48",
+      "enabled": true,
+      "type": "inline",
+      "description": "Memory Zero Hook - Clears suspicious memory"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6787C0C",
+      "hook_function": "hsub_6787C0C",
+      "original_function": "osub_6787C0C",
+      "enabled": true,
+      "type": "inline",
+      "description": "Pointer Validation Hook - Bypasses pointer checks"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x6787854",
+      "hook_function": "hsub_6787854",
+      "original_function": "osub_6787854",
+      "enabled": true,
+      "type": "inline",
+      "description": "Flag Reset Hook - Resets detection flags"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0x790AC40",
+      "hook_function": "FAKEDAMAGEFIX",
+      "original_function": "none",
+      "enabled": true,
+      "type": "replace",
+      "description": "Fake Damage Fix - Returns 0 for damage validation"
+    },
+    {
+      "library": "libUE4.so",
+      "offset": "0xC25DF70",
+      "hook_function": "ImpalerVLAED",
+      "original_function": "strln",
+      "enabled": true,
+      "type": "replace",
+      "description": "Skin Unlocker Hook - Replaces skin IDs"
+    }
+  ],
+  
+  "skins": {
+    "enabled": true,
+    "description": "Cosmetic Skin Unlocker - 60+ skins",
+    "replacements": {
+      "403003": "1407441",
+      "403042": "1405132",
+      "403161": "1407695",
+      "403163": "1407470",
+      "1406748": "1407695",
+      "403006": "1406897",
+      "1405548": "1407219",
+      "1405113": "1407625",
+      "1405884": "1407625",
+      "403195": "1407618",
+      "501001": "1501001051",
+      "501002": "1501002051",
+      "501003": "1501003051",
+      "1501001025": "1501001474",
+      "1501002025": "1501002474",
+      "1501003025": "1501003474",
+      "502101": "1502001431",
+      "502002": "1502002431",
+      "502003": "1502003431",
+      "2001001": "2002941",
+      "2200101": "12212201",
+      "2200301": "19200088",
+      "2200201": "12220028",
+      "10100400": "1101004062",
+      "10100100": "1101001265",
+      "10100800": "1101008163",
+      "10200200": "1102002424",
+      "10100300": "1101003208",
+      "10200100": "1102001130",
+      "10200300": "1102003080",
+      "10200400": "1102004018",
+      "10200500": "1102005057",
+      "10500200": "1105002063",
+      "10500100": "1105001069",
+      "1030050101": "1103005024",
+      "10100600": "1101006085",
+      "10400300": "1104003026",
+      "1907001": "1907054",
+      "1907002": "1907054",
+      "1907003": "1907054",
+      "1907004": "1907054",
+      "1907005": "1907054",
+      "1907006": "1907054",
+      "1961001": "1961025",
+      "1953001": "1953008",
+      "1908001": "2301072",
+      "1903001": "1903074",
+      "1903002": "1903080",
+      "1903003": "1903075",
+      "1915004": "1915008",
+      "1916001": "1916006",
+      "1532907": "1901089"
+    }
+  },
+  
+  "disabled_features": {
+    "description": "These features are OFF in original bypass.h",
+    "items": [
+      "Voidwave Trigger - M24 (Lv. 7)",
+      "Valor's Requiem - AWM (Lv. 7)",
+      "Icicle Spike - ACE32 (Lv. 7)",
+      "Burning Godzilla (Lv. 7)",
+      "Violet Volt - Kar98K (Lv. 7)",
+      "Skeletal Core - M16A4 (Lv. 7)",
+      "Fatal Foil - QBZ (Lv. 7)",
+      "Dazzling Sun - QBZ (Lv. 5)",
+      "Falling Blossom - SLR (Lv. 5)",
+      "Snowcapped Berg - SKS (Lv. 5)",
+      "Drakreign - Mk14 (Lv. 8)",
+      "Twilight Hunt - S1897 (Lv. 5)",
+      "Crimson Ephialtes - AMR (Lv. 8)"
+    ]
+  },
+  
+  "settings": {
+    "auto_update": true,
+    "check_interval_hours": 1,
+    "timeout_seconds": 5,
+    "retry_on_fail": true,
+    "log_applied": true
+  }
+}
